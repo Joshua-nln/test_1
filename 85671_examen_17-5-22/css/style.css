@@ -1,0 +1,190 @@
+body{
+  /* Maak een algemeen achtergrond */
+  background-image: url(../img/sea.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 50% 50%;
+}
+
+header{
+  height: 120px;
+  background-color: white;
+}
+
+.logo{
+  color:#fcb040;
+  text-align: center;
+  float: left;
+  font-size: 5em;
+  margin-top: 10px;
+}
+
+.zon_logo{
+  height: 110px;
+  margin: 5px;
+}
+
+.home_button{
+  display: block;
+  margin: 0 auto;
+  width: 50px;
+  color: black;
+  background-image: linear-gradient(white, white);
+  border-radius: 10px;
+  font-size: 3em;
+  text-decoration: none;
+  padding:   10px 130px 0 10px;
+  transition: .5s all; /*Dit geeft een smooth transition aan bij de hover van de button*/
+}
+/*Button hover*/
+.home_button:hover{
+  width: 130px;
+  color: #5DADE2;
+  text-decoration: none;
+  transition-delay: 0s;
+  background-image: linear-gradient(white 24%, #fcb040 1%);
+}
+
+/*Fix de gekleurde gedeelte van de toevoeg button in de header*/
+.fix_header_button{
+  display: block;
+  margin: -174px 200px 0 0;
+  float: right;
+  width: 50px;
+  color: black;
+  background-image: linear-gradient(white, white);
+  border-radius: 10px;
+  font-size: 2.5em;
+  text-decoration: none;
+  padding: 110px 130px 0 10px;
+  transition: .5s all; /*Dit geeft een smooth transition aan bij de hover van de button*/
+}
+
+.fix_header_button:hover{
+  width: 130px;
+  color: #5DADE2;
+  text-decoration: none;
+  transition-delay: 0s;
+  background-image: linear-gradient(white 49%, #fcb040 20%);
+}
+
+/*style de login button in de header*/
+.login_buton{
+  display: block;
+  margin: -174px 200px 0 0;
+  float: right;
+  width: 50px;
+  color: black;
+  background-image: linear-gradient(white, white);
+  border-radius: 10px;
+  font-size: 2.5em;
+  text-decoration: none;
+  padding: 110px 130px 0 10px;
+  transition: .5s all; /*Dit geeft een smooth transition aan bij de hover van de button*/
+}
+
+
+/*Button hover*/
+.login_buton:hover{
+  width: 130px;
+  color: #5DADE2;
+  text-decoration: none;
+  transition-delay: 0s;
+  background-image: linear-gradient(white 66%, #fcb040 34%);
+}
+
+.user{
+  background-image: linear-gradient(white 66%, #fcb040 34%);
+}
+
+/*linker home div box met algemeen info*/
+.linker_box{
+  width: 400px;
+  height: 800px;
+  float: left;
+  background-image: url(../img/clouds.jpg);
+  background-position: 50% 50%;
+  background-color: white;
+  border-radius: 10px;
+  margin: 50px 0 50px 80px;
+  padding: 2%;
+  text-align: center;
+  font-size: 2em;
+}
+
+/*login pagina*/
+.login_div{
+  width: 500px;
+  margin-top: 200px;
+  font-size: 1.4em;
+}
+
+.submit{
+  display: block;
+  margin: 0 auto;
+}
+
+.loginveld{
+  display: block;
+  margin: 0 auto;
+}
+
+.log_uit{
+  display: block;
+  margin: -182px 20px 0 20px;
+  float: right;
+  width: 50px;
+  color: black;
+  background-image: linear-gradient(white, white);
+  border-radius: 10px;
+  font-size: 2em;
+  text-decoration: none;
+  padding: 110px 130px 0 10px;
+  transition: .5s all; /*Dit geeft een smooth transition aan bij de hover van de button*/
+}
+
+.log_uit:hover{
+  width: 130px;
+  color: #5DADE2;
+  text-decoration: none;
+  transition-delay: 0s;
+  background-image: linear-gradient(white 58%, #fcb040 42%);
+}
+
+.rechter_box{
+  float: left;
+  margin: 10% 0 0 20%;
+}
+
+/*Tabel style*/
+.reis_tabel{
+}
+
+table.reis_tabel {
+  border: 0px solid #948473;
+  background-color: white;
+  width: 500px;
+  text-align: center;
+  border-radius: 30px;
+}
+table.reis_tabel td, table.reis_tabel th {
+  border: 0px solid #948473;
+  padding: 4px 4px;
+}
+table.reis_tabel tbody td {
+  font-size: 13px;
+}
+table.reis_tabel tbody{
+  float:right;
+  width: 200px;
+  padding: 30px;
+}
+
+.form{
+  margin-top: 200px;
+}
+
+.form_font{
+  font-weight: 600;
+  font-size: 1.5em;
+}
