@@ -1,0 +1,121 @@
+body{
+  /* Maak een algemeen achtergrond */
+  background-image: url(../img/sea.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 50% 50%;
+}
+
+header{
+  height: 120px;
+  background-color: white;
+}
+
+.logo{
+  color:black;
+  text-align: center;
+  float: left;
+  font-size: 5em;
+  margin-top: 10px;
+}
+
+.zon_logo{
+  height: 110px;
+  margin: 5px;
+}
+
+.home_button{
+  display: block;
+  margin: 0 auto;
+  width: 50px;
+  color: black;
+  background-image: linear-gradient(white, white);
+  border-radius: 10px;
+  font-size: 3em;
+  text-decoration: none;
+  padding: 110px 130px 0 10px;
+  transition: .5s all; /*Dit geeft een smooth transition aan bij de hover van de button*/
+}
+/*Button hover*/
+.home_button:hover{
+  width: 130px;
+  color: #5DADE2;
+  text-decoration: none;
+  transition-delay: 0s;
+  background-image: linear-gradient(white 66%, #fcb040 34%);
+}
+
+.login_buton{
+  display: block;
+  margin: -174px 200px 0 0;
+  float: right;
+  width: 50px;
+  color: black;
+  background-image: linear-gradient(white, white);
+  border-radius: 10px;
+  font-size: 2.5em;
+  text-decoration: none;
+  padding: 110px 130px 0 10px;
+  transition: .5s all; /*Dit geeft een smooth transition aan bij de hover van de button*/
+}
+
+/*Button hover*/
+.login_buton:hover{
+  width: 130px;
+  color: #5DADE2;
+  text-decoration: none;
+  transition-delay: 0s;
+  background-image: linear-gradient(white 66%, #fcb040 34%);
+}
+
+/*Linker*/
+.linker_box{
+  width: 400px;
+  height: 600px;
+  background-color: white;
+  border-radius: 10px;
+  margin: 50px 0 50px 50px;
+}
+
+/*login pagina*/
+.login_div{
+  width: 500px;
+  margin-top: 200px;
+  font-size: 1.4em;
+}
+
+.submit{
+  display: block;
+  margin: 0 auto;
+}
+
+.loginveld{
+  display: block;
+  margin: 0 auto;
+}
+
+.log_uit{
+  display: block;
+  margin: -182px 20px 0 20px;
+  float: right;
+  width: 50px;
+  color: black;
+  background-image: linear-gradient(white, white);
+  border-radius: 10px;
+  font-size: 2em;
+  text-decoration: none;
+  padding: 110px 130px 0 10px;
+  transition: .5s all; /*Dit geeft een smooth transition aan bij de hover van de button*/
+}
+
+.log_uit:hover{
+  width: 130px;
+  color: #5DADE2;
+  text-decoration: none;
+  transition-delay: 0s;
+  background-image: linear-gradient(white 66%, #fcb040 34%);
+}
+
+.form{
+  color:white;
+}
