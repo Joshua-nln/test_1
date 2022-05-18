@@ -24,20 +24,20 @@ require '../session.inc.php';
       <img src="../img/GLR.png" style="width:100px;" alt="">
       <a href="../index.php" class="home_button">Home</a>
       <?php
-      //Maak de permissie functie met een level systeem
-          $studentnummer = $_SESSION['studentnummer'];
-          $result = mysqli_query($mysqli, "SELECT * FROM users WHERE studentnummer = $studentnummer");
-          $row = mysqli_fetch_array($result);
-          if($row['level'] == 2) {
-            echo "<p class='user login_buton'>Admin</p>";
-            echo "<a href='../destroy_session.php' class='log_uit'>Log Uit</a>";
-          }
-          if($row['level'] == 1) {
-            echo "<p class='user login_buton'>" . $_SESSION['studentnummer'] . "</p>";
-            echo "<a href='../destroy_session.php' class='log_uit'>Log Uit</a>";
-          }
-          ?>
-    </header>
+//Maak de permissie functie met een level systeem
+$studentnummer = $_SESSION['studentnummer'];
+$result        = mysqli_query($mysqli, "SELECT * FROM users WHERE studentnummer = $studentnummer");
+$row           = mysqli_fetch_array($result);
+if ($row['level'] == 2) {
+    echo "<p class='user login_buton'>Admin</p>";
+    echo "<a href='../destroy_session.php' class='log_uit'>Log Uit</a>";
+}
+if ($row['level'] == 1) {
+    echo "<p class='user login_buton'>" . $_SESSION['studentnummer'] . "</p>";
+    echo "<a href='../destroy_session.php' class='log_uit'>Log Uit</a>";
+}
+?>
+   </header>
     <center>
       <form name="form1" method="post" action="reis_toevoeg_verwerk.php" class="form form_font">
             <div class="title">Voeg een reis toe!</div>

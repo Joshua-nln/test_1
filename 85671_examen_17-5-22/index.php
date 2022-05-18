@@ -1,17 +1,15 @@
 <?php
-  require 'config.php';
-  require_once 'session.inc.php';
+require 'config.php';
+require_once 'session.inc.php';
 
-  $query = "SELECT level FROM users";
+$query = "SELECT level FROM users";
 
-  $resultaat = mysqli_query($mysqli, $query);
+$resultaat = mysqli_query($mysqli, $query);
 
-  if (mysqli_num_rows($resultaat) == 0)
-  {
-      echo "<p>Er zijn geen resultaat gevonden.</p>";
-  }
- ?>
-
+if (mysqli_num_rows($resultaat) == 0) {
+    echo "<p>Er zijn geen resultaat gevonden.</p>";
+}
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -33,20 +31,20 @@
       <img src="img/GLR.png" style="width:100px;" alt="">
       <a href="#" class="home_button">Home</a>
       <?php
-      //Maak de permissie functie met een level systeem
-          $studentnummer = $_SESSION['studentnummer'];
-          $result = mysqli_query($mysqli, "SELECT * FROM users WHERE studentnummer = $studentnummer");
-          $row = mysqli_fetch_array($result);
-          if($row['level'] == 2) {
-            echo "<p class='user login_buton'>Admin</p>";
-            echo "<a href='destroy_session.php' class='log_uit'>Log Uit</a>";
-            echo "<a href='reis_toevoeg/reis_toevoeg.php' class='fix_header_button'>Voeg toe</a>";
-          }
-          if($row['level'] == 1) {
-            echo "<p class='user login_buton'>" . $_SESSION['studentnummer'] . "</p>";
-            echo "<a href='destroy_session.php' class='log_uit'>Log Uit</a>";
-          }
-          ?>
+//Maak de permissie functie met een level systeem
+$studentnummer = $_SESSION['studentnummer'];
+$result        = mysqli_query($mysqli, "SELECT * FROM users WHERE studentnummer = $studentnummer");
+$row           = mysqli_fetch_array($result);
+if ($row['level'] == 2) {
+    echo "<p class='user login_buton'>Admin</p>";
+    echo "<a href='destroy_session.php' class='log_uit'>Log Uit</a>";
+    echo "<a href='reis_toevoeg/reis_toevoeg.php' class='fix_header_button'>Voeg toe</a>";
+}
+if ($row['level'] == 1) {
+    echo "<p class='user login_buton'>" . $_SESSION['studentnummer'] . "</p>";
+    echo "<a href='destroy_session.php' class='log_uit'>Log Uit</a>";
+}
+?>
 
     </header>
 
@@ -59,42 +57,42 @@
       </div>
       <div class="rechter_box">
         <?php
-        //connect met de database
-        require 'config.php';
+//connect met de darijase
+require 'config.php';
 
-        $query = "SELECT * FROM reizen";
+$query = "SELECT * FROM reizen";
 
-        $resultaat = mysqli_query($mysqli, $query);
+$resultaat = mysqli_query($mysqli, $query);
 
-        if (mysqli_num_rows($resultaat) == 0)
-        {
-            echo "<center><h2>er zijn geen reizen gevonden</h2></center>";
+if (mysqli_num_rows($resultaat) == 0) {
+    echo "<center><h2>er zijn geen reizen gevonden</h2></center>";
+} else {
+    echo "<center>";
+    //Maak tabellen met alle data uit de database
+    while ($rij = mysqli_fetch_array($resultaat)) {
+?>
+              <table border='1' class='index_tabel reis_tabel'>
+               <img src="img/<?php
+        echo $rij['img'];
+?>" style="width:400px; margin:0px 0px -500px -155px; border-radius:10px;">
+                 <tbody>
+                   <tr><?php
+        echo "<td>Wat?: <p style='font-weight:bold;'>" . $rij['titel'] . "</p></td></tr>";
+        echo "<tr><td>Waar?: <p style='font-weight:bold;'>" . $rij['bestemming'] . "</p></td></tr>";
+        echo "<tr><td> <a href='reis_detail/reis_detail.php?id=" . $rij['boekingsnummer'] . "'>Details</a></td></tr>";
+        if ($row['level'] == 2) {
+            echo "<tr><td> <a href='reis_wijzig/reis_wijzig.php?id=" . $rij['boekingsnummer'] . "'>Wijzig</a></td></tr>";
+            echo "<tr><td><a href='reis_verwijder/reis_verwijder.php?id=" . $rij['boekingsnummer'] . "'>Verwijder</a></td></tr><br><br><br>";
+            echo "</tbody>";
         }
-        else {
-            echo "<center>";
-            //Maak tabellen met alle data uit de database
-            while ($rij = mysqli_fetch_array($resultaat)) {
-              echo "<table border='1' class='reis_tabel'>";
-              echo "<img src='img/" . $rij['img'] . "' width='100px' />";
-                echo "<tbody>";
-                  echo "<tr'>";
-                  echo "<td>Wat?: <p style='font-weight:bold;'>" . $rij['titel'] . "</p></td></tr>";
-                  echo "<tr><td>Waar?: <p style='font-weight:bold;'>" .  $rij['bestemming'] . "</p></td></tr>";
-                  echo "<tr><td> <a href='reis_detail/reis_wijzig.php?id=".$rij['boekingsnummer']."'>Details</a></td></tr>";
-                  if($row['level'] == 2) {
-                  echo "<tr><td> <a href='reis_wijzig/reis_wijzig.php?id=".$rij['boekingsnummer']."'>Wijzig</a></td></tr>";
-                  echo "<tr><td><a href='reis_verwijder/reis_verwijder.php?id=".$rij['boekingsnummer']."'>Verwijder</a></td></tr><br><br><br>";
-                echo "</tbody>";
-              }else{
-                echo "</tr>";
+        echo "</tr>";
 
-            }
-          }
-            echo "</table>";
-            echo "<center>";
-        }
-        ?>
-      </div>
+    }
+    echo "</table>";
+    echo "<center>";
+}
+?>
+     </div>
     </div>
 
     <footer>

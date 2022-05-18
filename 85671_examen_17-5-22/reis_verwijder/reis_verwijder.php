@@ -1,16 +1,14 @@
 <?php
-  require '../config.php';
-  require_once '../session.inc.php';
+require '../config.php';
+require_once '../session.inc.php';
 
+$query = "SELECT level FROM users";
 
-  $query = "SELECT level FROM users";
+$resultaat = mysqli_query($mysqli, $query);
 
-  $resultaat = mysqli_query($mysqli, $query);
-
-  if (mysqli_num_rows($resultaat) == 0)
-  {
-      echo "<p>Er zijn geen resultaat gevonden.</p>";
-  }
+if (mysqli_num_rows($resultaat) == 0) {
+    echo "<p>Er zijn geen resultaat gevonden.</p>";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -32,48 +30,50 @@
       <img src="../img/GLR.png" style="width:100px;" alt="">
       <a href="../index.php" class="home_button">Home</a>
       <?php
-      //Maak de permissie functie met een level systeem
-          $studentnummer = $_SESSION['studentnummer'];
-          $result = mysqli_query($mysqli, "SELECT * FROM users WHERE studentnummer = $studentnummer");
-          $row = mysqli_fetch_array($result);
-          if($row['level'] == 2) {
-            echo "<p class='user login_buton'>Admin</p>";
-            echo "<a href='destroy_session.php' class='log_uit'>Log Uit</a>";
-            echo "<a href='reis_toevoeg/reis_toevoeg.php' class='login_buton'>Voeg toe</a>";
-          }
-          if($row['level'] == 1) {
-            echo "<p class='user login_buton'>" . $_SESSION['studentnummer'] . "</p>";
-            echo "<a href='destroy_session.php' class='log_uit'>Log Uit</a>";
-          }
-          ?>
-    </header>
+//Maak de permissie functie met een level systeem
+$studentnummer = $_SESSION['studentnummer'];
+$result        = mysqli_query($mysqli, "SELECT * FROM users WHERE studentnummer = $studentnummer");
+$row           = mysqli_fetch_array($result);
+if ($row['level'] == 2) {
+    echo "<p class='user login_buton'>Admin</p>";
+    echo "<a href='destroy_session.php' class='log_uit'>Log Uit</a>";
+    echo "<a href='reis_toevoeg/reis_toevoeg.php' class='login_buton'>Voeg toe</a>";
+}
+if ($row['level'] == 1) {
+    echo "<p class='user login_buton'>" . $_SESSION['studentnummer'] . "</p>";
+    echo "<a href='destroy_session.php' class='log_uit'>Log Uit</a>";
+}
+?>
+   </header>
     <?php
-    //haal data vanuit de database op
-    $boekingsnummer = $_GET['id'];
-    $query = "SELECT * FROM reizen WHERE boekingsnummer = '$boekingsnummer'";
-    $resultaat = mysqli_query($mysqli, $query);
-    if (mysqli_num_rows($resultaat) == 0)
+//haal data vanuit de database op
+$boekingsnummer = $_GET['id'];
+$query          = "SELECT * FROM reizen WHERE boekingsnummer = '$boekingsnummer'";
+$resultaat      = mysqli_query($mysqli, $query);
+if (mysqli_num_rows($resultaat) == 0) {
+    echo "<p>Er is geen reis met ID $boekingsnummer.</p>";
+} else {
 
-    {
-        echo "<p>Er is geen reis met ID $boekingsnummer.</p>";
-    } else
+    $rij = mysqli_fetch_array($resultaat);
 
-    {
-
-        $rij = mysqli_fetch_array($resultaat);
-
-        ?>
-    <center>
+?>
+   <center>
       <form name="form1" method="POST" action="reis_verwijder_verwerk.php" class="form form_font">
           <div class="title">Verwijder Reis</div>
-          <input type="hidden" name="boekingsnummer" value="<?php echo $rij['boekingsnummer'] ?>">
+          <input type="hidden" name="boekingsnummer" value="<?php
+    echo $rij['boekingsnummer'];
+?>">
           <div class="">
-            <input type="text" name="titel" value="<?php echo $rij['titel'] ?>" disabled class="input"></p>
+            <input type="text" name="titel" value="<?php
+    echo $rij['titel'];
+?>" disabled class="input"></p>
             <div class="cut"></div>
             <label for="titel" class="placeholder">titel</label>
           </div>
           <div class="">
-           <input type="text" name="bestemming" value="<?php echo $rij['bestemming'] ?>" disabled class="input"></p>
+           <input type="text" name="bestemming" value="<?php
+    echo $rij['bestemming'];
+?>" disabled class="input"></p>
             <div class="cut"></div>
             <label for="bestemming" class="placeholder">bestemming</label>
           </div>
@@ -81,13 +81,11 @@
           <input type="submit" name="submit" value="Verwijder" class="submit">
       </form>
 
-
         <h3>terug naar <a href="../index.php">overzicht</a></h3>
     </center>
         <?php
+}
 
-    }
-
-    ?>
-  </body>
+?>
+ </body>
 </html>

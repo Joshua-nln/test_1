@@ -153,17 +153,23 @@ header{
 
 .rechter_box{
   float: left;
-  margin: 10% 0 0 20%;
+  margin: 0 0 0 14%;
 }
 
 /*Tabel style*/
 .reis_tabel{
 }
 
+.index_tabel{
+  width: 600px;
+  height: 300px;
+}
+
 table.reis_tabel {
   border: 0px solid #948473;
   background-color: white;
-  width: 500px;
+  width: 700px;
+  height: 400px;
   text-align: center;
   border-radius: 30px;
 }
@@ -172,7 +178,7 @@ table.reis_tabel td, table.reis_tabel th {
   padding: 4px 4px;
 }
 table.reis_tabel tbody td {
-  font-size: 13px;
+  font-size:1.5em;
 }
 table.reis_tabel tbody{
   float:right;
@@ -187,4 +193,9 @@ table.reis_tabel tbody{
 .form_font{
   font-weight: 600;
   font-size: 1.5em;
+}
+
+#home{
+  text-align: center;
+  margin-top: 10%;
 }
